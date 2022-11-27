@@ -3,6 +3,26 @@ const wordSearch = (letters, word) => {
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
-}
 
-module.exports = wordSearch
+    let vertCheck = [];
+
+    for (i = 0; i < letters[0].length; i++) {
+        let pillar = [];
+
+        for (x = 0; x < letters.length; x++) {
+            pillar.push(letters[x][i]);
+        }
+        vertCheck.push(pillar);
+    }
+
+    vertCheck = vertCheck.map((ls) => ls.join(''));
+        for (const l of vertCheck) {
+        if (l.includes(word)) return true;
+    }
+    
+    return false;
+  };
+
+
+ 
+module.exports = wordSearch;
